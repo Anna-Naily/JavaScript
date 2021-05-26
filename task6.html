@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        let number = +prompt('Укажите, какую сумму Вы хотите положить на счет')
+        let numberStr = String(number)
+        let currency = null
+        if(number % 5 == 0){
+            currency = 'рублей';
+        } else if(numberStr.length == 1){
+            if(Number(numberStr) == 1){
+                currency = 'рубль';
+            }else if(Number(numberStr) > 1 && Number(numberStr) < 5){
+                currency = 'рубля';
+            }else{
+                currency = 'рублей';
+                }  
+        } else if(numberStr.length > 1){
+            if(Number(numberStr[numberStr.length - 2]) == 1){
+                currency = 'рублей';
+            }else if(Number(numberStr[numberStr.length - 1]) == 1){
+                currency = 'рубль';
+            }else if(Number(numberStr[numberStr.length - 1]) > 1 && Number(numberStr[numberStr.length - 1]) < 5 ){
+                currency = 'рубля';
+            }else if(Number(numberStr[numberStr.length - 1]) > 4){
+                currency = 'рублей';
+            }
+        } 
+
+        alert('Ваша сумма в ' + number + ' ' + currency + ' успешно зачислена.');
+        
+    </script>
+</body>
+</html>

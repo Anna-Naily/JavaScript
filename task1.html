@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        'use strict'
-        //Задание 1
-        for (let i = 0; i <= 10; i++){
-            if(i == 0)
-            console.log(i + ' - это ноль')
-            else if(i % 2 == 0)
-            console.log(i + ' - четное число');    
-            else
-            console.log(i + ' - нечетное число');
+      "use strict";
+      function transformation(number) {
+        let objNumber = {};
+        if (Number.isInteger(number) == true && number >= 0 && number <= 999) {
+          let arrNumber = String(number).split("");
+          switch (arrNumber.length) {
+            case 1:
+              objNumber = {
+                units: Number(arrNumber[0]), //это единицы
+                tens: 0, //это десятки
+                hundreds: 0, //это сотни
+              };
+              break;
+            case 2:
+              objNumber = {
+                units: Number(arrNumber[1]), //это единицы
+                tens: Number(arrNumber[0]), //это десятки
+                hundreds: 0, //это сотни
+              };
+              break;
+            default:
+              objNumber = {
+                units: Number(arrNumber[2]), //это единицы
+                tens: Number(arrNumber[1]), //это десятки
+                hundreds: Number(arrNumber[0]), //это сотни
+              };
+              break;
+          }
+          return objNumber;
         }
+        console.log("Число введено некорректно");
+        return objNumber;
+      }
+      console.log(transformation(54));
     </script>
-</body>
+  </body>
 </html>

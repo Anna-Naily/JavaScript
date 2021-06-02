@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      class Game {
+        constructor() {
+          this.score = 0;
+          this.level = 1;
+        }
+        run() {
+          while (this.level < 6) {
+            let answer = prompt(
+              "Введите букву правильного ответа:\n" +
+                this.question(this.level)[0] +
+                "\nЕсли Вы хотите отменить игру, введите 0"
+            );
+            if (answer == this.question(this.level)[1]) {
+              alert("Вы ответили правильно!");
+              this.score++;
+            } else if (answer == "0") {
+              break;
+            } else
+              alert(
+                "Ответ неверный! Правильный ответ " +
+                  this.question(this.level)[1]
+              );
+            this.level++;
+          }
+          alert("Спасибо за игру! Ваш результат " + this.score);
+        }
+        question(number) {
+          let quest = "";
+          let arrQuest = [];
+          switch (number) {
+            case 1:
+              quest =
+                "Сколько планет в солнечной системе?\na) 3 планеты\nb) 9 планет\nc) 8 планет\nd) Что за солнечная система?";
+              arrQuest[0] = quest;
+              arrQuest[1] = "c";
+              return arrQuest;
+              break;
+            case 2:
+              quest =
+                "Какое животное сбрасывает рога?\na) Жираф\nb) Олень\nc) Суслик\nd) Антилопа";
+              arrQuest[0] = quest;
+              arrQuest[1] = "b";
+              return arrQuest;
+              break;
+            case 3:
+              quest =
+                "Чем является арбуз?\na) Ягода\nb) Фрукт\nc) Мясо\nd) Трава";
+              arrQuest[0] = quest;
+              arrQuest[1] = "a";
+              return arrQuest;
+              break;
+            case 4:
+              quest =
+                "Столица Испании - это:\na) Барселона\nb) Мадрид\nc) Валенсия\nd) Рим";
+              arrQuest[0] = quest;
+              arrQuest[1] = "b";
+              return arrQuest;
+              break;
+            case 5:
+              quest =
+                "Васнецов В. М. - это:\na) Певец\nb) Актер\nc) Художник\nd) Поэт";
+              arrQuest[0] = quest;
+              arrQuest[1] = "c";
+              return arrQuest;
+              break;
+          }
+        }
+        init() {
+          alert(
+            'Привет! Добро пожаловать в игру "Кто хочет стать миллионером?"'
+          );
+        }
+      }
+      let start = new Game();
+      start.init();
+      start.run();
+    </script>
+  </body>
+</html>
